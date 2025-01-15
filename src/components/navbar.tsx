@@ -19,12 +19,12 @@ export default function NavBar({ settings }: NavBarProps) {
 
   return (
     <nav className="md-:py-6 px-4 py-4 md:px-6" aria-label="Main">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
+      <div className="mx-auto flex max-w-8xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
         <div className="flex items-center justify-between">
           <Link href="/" className="z-50" onClick={() => setOpen(false)}>
             {/* <Title /> */}
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-100 to-blue-50 bg-clip-text text-transparent">Genie UI</h2>
-            <span className="sr-only">Genie UI Home Page</span>
+            <h2 className="text-lg font-semibold bg-gradient-to-r">UCynthia</h2>
+            <span className="sr-only">UCynthia Home Page</span>
           </Link>
           <button
             type="button"
@@ -54,7 +54,7 @@ export default function NavBar({ settings }: NavBarProps) {
           </button>
 
           <div className="grid justify-items-end gap-8">
-            {settings.data.navigation.map((item) => {
+            {settings.data.repeatable_zone.map((item) => {
               if (item.cta_button) {
                 return (
                   <ButtonLink
@@ -92,7 +92,7 @@ export default function NavBar({ settings }: NavBarProps) {
 
         {/* Desktop Nav */}
         <ul className=" hidden gap-6 md:flex">
-          {settings.data.navigation.map((item) => {
+          {settings.data.repeatable_zone.map((item) => {
             if (item.cta_button) {
               return (
                 <li key={item.label}>

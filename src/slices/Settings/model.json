@@ -1,0 +1,77 @@
+{
+  "id": "settings",
+  "type": "SharedSlice",
+  "name": "Settings",
+  "description": "Settings",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_title": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Title",
+            "placeholder": ""
+          }
+        },
+        "some_cool_site": {
+          "type": "Text",
+          "config": {
+            "label": "Some Cool Site",
+            "placeholder": ""
+          }
+        },
+        "fallback_og_image": {
+          "type": "Image",
+          "config": {
+            "label": "Fallback OG Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "repeatable_zone": {
+          "type": "Group",
+          "config": {
+            "label": "Repeatable Zone",
+            "repeat": true,
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": ""
+                }
+              },
+              "cta_button": {
+                "type": "Boolean",
+                "config": {
+                  "label": "CTA Button",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

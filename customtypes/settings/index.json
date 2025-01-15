@@ -1,14 +1,21 @@
 {
   "format": "page",
   "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
       "slices": {
-        "config": {
-          "choices": {}
-        },
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "settings": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -36,10 +43,43 @@
           "thumbnails": []
         },
         "type": "Image"
+      },
+      "repeatable_zone": {
+        "type": "Group",
+        "config": {
+          "label": "Repeatable Zone",
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "cta_button": {
+              "type": "Boolean",
+              "config": {
+                "label": "CTA Button",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
       }
     }
-  },
-  "label": "Settings",
-  "repeatable": false,
-  "status": true
+  }
 }

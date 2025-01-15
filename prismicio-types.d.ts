@@ -85,7 +85,43 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type SettingsDocumentDataSlicesSlice = never;
+type SettingsDocumentDataSlicesSlice = SettingsSlice;
+
+/**
+ * Item in *Settings → Repeatable Zone*
+ */
+export interface SettingsDocumentDataRepeatableZoneItem {
+  /**
+   * Label field in *Settings → Repeatable Zone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.repeatable_zone[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * CTA Button field in *Settings → Repeatable Zone*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: settings.repeatable_zone[].cta_button
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  cta_button: prismic.BooleanField;
+
+  /**
+   * Link field in *Settings → Repeatable Zone*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.repeatable_zone[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
 
 /**
  * Content for Settings documents
@@ -132,6 +168,19 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
+
+  /**
+   * Repeatable Zone field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.repeatable_zone[]
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  repeatable_zone: prismic.GroupField<
+    Simplify<SettingsDocumentDataRepeatableZoneItem>
+  >;
 }
 
 /**
@@ -829,6 +878,119 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Settings → Default → Primary → Repeatable Zone*
+ */
+export interface SettingsSliceDefaultPrimaryRepeatableZoneItem {
+  /**
+   * Label field in *Settings → Default → Primary → Repeatable Zone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.repeatable_zone[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * CTA Button field in *Settings → Default → Primary → Repeatable Zone*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: settings.default.primary.repeatable_zone[].cta_button
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  cta_button: prismic.BooleanField;
+
+  /**
+   * Link field in *Settings → Default → Primary → Repeatable Zone*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.repeatable_zone[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<prismic.LinkField>;
+}
+
+/**
+ * Primary content in *Settings → Default → Primary*
+ */
+export interface SettingsSliceDefaultPrimary {
+  /**
+   * Slice Title field in *Settings → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.slice_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_title: prismic.KeyTextField;
+
+  /**
+   * Some Cool Site field in *Settings → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.some_cool_site
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  some_cool_site: prismic.KeyTextField;
+
+  /**
+   * Fallback OG Image field in *Settings → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.fallback_og_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  fallback_og_image: prismic.ImageField<never>;
+
+  /**
+   * Repeatable Zone field in *Settings → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.default.primary.repeatable_zone[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  repeatable_zone: prismic.GroupField<
+    Simplify<SettingsSliceDefaultPrimaryRepeatableZoneItem>
+  >;
+}
+
+/**
+ * Default variation for Settings Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SettingsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SettingsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Settings*
+ */
+type SettingsSliceVariation = SettingsSliceDefault;
+
+/**
+ * Settings Shared Slice
+ *
+ * - **API ID**: `settings`
+ * - **Description**: Settings
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SettingsSlice = prismic.SharedSlice<
+  "settings",
+  SettingsSliceVariation
+>;
+
+/**
  * Item in *Work → Default → Primary → Repeatable Zone*
  */
 export interface WorkSliceDefaultPrimaryRepeatableZoneItem {
@@ -944,6 +1106,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataSlicesSlice,
+      SettingsDocumentDataRepeatableZoneItem,
       AllDocumentTypes,
       AboutSlice,
       AboutSliceDefaultPrimary,
@@ -983,6 +1146,11 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      SettingsSlice,
+      SettingsSliceDefaultPrimaryRepeatableZoneItem,
+      SettingsSliceDefaultPrimary,
+      SettingsSliceVariation,
+      SettingsSliceDefault,
       WorkSlice,
       WorkSliceDefaultPrimaryRepeatableZoneItem,
       WorkSliceDefaultPrimary,

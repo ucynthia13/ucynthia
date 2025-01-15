@@ -15,7 +15,7 @@ const CodeSamplesContent = ({ time, link, body}: CodeSamplesContent): JSX.Elemen
             <div className="font-extralight text-sm py-8">{time}</div>
             <div className="col-span-2">
                 <div className={clsx("py-8")}>
-                    <div className={clsx("grid gap-3 p-6 bg-slate-800")}>
+                    <div className={clsx("grid gap-3 p-6 bg-slate-900 rounded-lg")}>
                         <div className="flex flex-row">
                         <PrismicNextLink
                             field={link}
