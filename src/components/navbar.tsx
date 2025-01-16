@@ -18,12 +18,12 @@ export default function NavBar({ settings }: NavBarProps) {
   const pathname = usePathname();
 
   return (
-    <nav className="md-:py-6 px-4 py-4 md:px-6" aria-label="Main">
+    <nav className="px-4 py-2 md:px-8" aria-label="Main">
       <div className="mx-auto flex max-w-8xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
         <div className="flex items-center justify-between">
           <Link href="/" className="z-50" onClick={() => setOpen(false)}>
             {/* <Title /> */}
-            <h2 className="text-lg font-semibold bg-gradient-to-r">UCynthia</h2>
+            <h2 className="text-lg font-semibold">UCynthia</h2>
             <span className="sr-only">UCynthia Home Page</span>
           </Link>
           <button

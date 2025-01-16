@@ -17,11 +17,11 @@ const About = ({ slice }: AboutProps): JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation} className={""}    >
-      <div className="grid grid-cols-3 border-b border-slate-300/50 py-8 gap-8">
+      <div className="grid grid-cols-3 border-b bottom-border py-8 gap-8">
         <div className="flex justify-center items-center">
           <PrismicImage
             field={slice.primary.image}
-            className="w-48 h-48 opacity-90 hover:opacity-100 object-cover rounded-full p-1 border border-slate-300/50"
+            className="w-48 h-48 opacity-90 hover:opacity-100 object-cover rounded-full p-1 border border-color"
             sizes="(max-width: 96px) 16vw, 10vw"
           />
         </div>

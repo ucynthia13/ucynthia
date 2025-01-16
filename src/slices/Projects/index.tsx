@@ -22,7 +22,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
       <div className="py-6">
         <Title field={slice.primary.title} />
       </div>
-      <div className="border-b border-slate-300/50">
+      <div className="bottom-border">
         {slice.primary.repeatable_zone.map((item, index) => (
           <div className="grid grid-cols-3">
             <div className="font-extralight text-sm py-8">{item.time}</div>
@@ -34,7 +34,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
                     className="opacity-90 hover:opacity-100 object-contain"
                   />
                 </div>
-                <div className={clsx("py-8", index % 2 === 0 && "border-b border-slate-300/50")}>
+                <div className={clsx("py-8", index % 2 === 0 && "bottom-border")}>
                   <div className="grid gap-3">
                     <div className="flex flex-row">
                       <PrismicRichText

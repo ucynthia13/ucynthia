@@ -10,7 +10,6 @@ export const components = {
   contacts: dynamic(() => import("./Contacts")),
   education: dynamic(() => import("./Education")),
   projects: dynamic(() => import("./Projects")),
-  rich_text: dynamic(() => import("./RichText")),
   settings: dynamic(() => import("./Settings")),
   work: dynamic(() => import("./Work")),
 };

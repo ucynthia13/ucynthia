@@ -12,6 +12,17 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ( { addUtilities }){
+      addUtilities({
+        '.border-color':{
+          '@apply border-slate-300/90': {},
+        },
+        '.bottom-border':{
+          '@apply border-b border-slate-300/40':{},
+        }
+      })
+    }
+  ],
 }
 

@@ -21,7 +21,7 @@ const CodeSamples = ({ slice }: CodeSamplesProps): JSX.Element => {
           <Title field={slice.primary.title} />
         </div>
 
-        <div className="border-b border-slate-300/50">
+        <div className="bottom-border">
           {slice.primary.repeatable_zone.map((item) => (
             <CodeSamplesContent time={`${item.time}`} link={item.heading} body={item.body}  />
           ))}
