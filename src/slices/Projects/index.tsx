@@ -24,7 +24,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
       </div>
       <div className="bottom-border">
         {slice.primary.repeatable_zone.map((item, index) => (
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3" key={index}>
             <div className="font-extralight text-sm py-8">{item.time}</div>
             <div className="col-span-2">
               <div className="flex flex-row gap-8">

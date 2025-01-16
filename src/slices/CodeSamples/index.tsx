@@ -22,8 +22,8 @@ const CodeSamples = ({ slice }: CodeSamplesProps): JSX.Element => {
         </div>
 
         <div className="bottom-border">
-          {slice.primary.repeatable_zone.map((item) => (
-            <CodeSamplesContent time={`${item.time}`} link={item.heading} body={item.body}  />
+          {slice.primary.repeatable_zone.map((item, index) => (
+            <CodeSamplesContent key={index} time={`${item.time}`} link={item.heading} body={item.body}  />
           ))}
         </div>
     </Section>

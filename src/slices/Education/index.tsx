@@ -21,8 +21,8 @@ const Education = ({ slice }: EducationProps): JSX.Element => {
         <Title field={slice.primary.title} />
       </div>
       <div className="bottom-border">
-        {slice.primary.repeatable_zone.map((item) => (
-          <TimeAndContent time={`${item.time}`} subheading={item.heading} body={item.body} index={1} />
+        {slice.primary.repeatable_zone.map((item, index) => (
+          <TimeAndContent key={index} time={`${item.time}`} subheading={item.heading} body={item.body} index={1} />
         ))}
       </div>
     </Section>
