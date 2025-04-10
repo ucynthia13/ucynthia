@@ -18,30 +18,34 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
   return (
     <Section
       data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation} className={""}    >
+      data-slice-variation={slice.variation}
+      className={""}
+    >
       <div className="py-6">
         <Title field={slice.primary.title} />
       </div>
       <div className="bottom-border">
         {slice.primary.repeatable_zone.map((item, index) => (
           <div className="grid grid-cols-3" key={index}>
-            <div className="font-extralight text-sm py-8">{item.time}</div>
+            <div className="py-8 text-sm font-extralight">{item.time}</div>
             <div className="col-span-2">
               <div className="flex flex-row gap-8">
-                <div className="flex justify-center items-center">
+                <div className="flex items-center justify-center">
                   <PrismicNextImage
                     field={item.image}
-                    className="opacity-90 hover:opacity-100 object-contain"
+                    className="object-contain opacity-90 hover:opacity-100 rounded-lg"
                   />
                 </div>
-                <div className={clsx("py-8", index % 2 === 0 && "bottom-border")}>
+                <div
+                  className={clsx("py-8", index % 2 === 0 && "bottom-border")}
+                >
                   <div className="grid gap-3">
                     <div className="flex flex-row">
                       <PrismicRichText
                         field={item.heading}
                         components={{
                           heading2: ({ children }) => (
-                            <h2 className="font-semibold cursor-pointer">
+                            <h2 className="cursor-pointer font-semibold">
                               {children}
                             </h2>
                           ),
@@ -54,7 +58,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
                       field={item.body}
                       components={{
                         paragraph: ({ children }) => (
-                          <p className="font-extralight text-sm">{children}</p>
+                          <p className="text-sm font-extralight">{children}</p>
                         ),
                       }}
                     />

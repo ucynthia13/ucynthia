@@ -12,8 +12,7 @@ type PageDocumentDataSlicesSlice =
   | AwardsSlice
   | ProjectsSlice
   | WorkSlice
-  | AboutSlice
-  | RichTextSlice;
+  | AboutSlice;
 
 /**
  * Content for Page documents
@@ -833,51 +832,6 @@ export type ProjectsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *RichText → Default → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
-  /**
-   * Content field in *RichText → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Default variation for RichText Slice
- *
- * - **API ID**: `default`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<RichTextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *RichText*
- */
-type RichTextSliceVariation = RichTextSliceDefault;
-
-/**
- * RichText Shared Slice
- *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
->;
-
-/**
  * Item in *Settings → Default → Primary → Repeatable Zone*
  */
 export interface SettingsSliceDefaultPrimaryRepeatableZoneItem {
@@ -1142,10 +1096,6 @@ declare module "@prismicio/client" {
       ProjectsSliceDefaultPrimary,
       ProjectsSliceVariation,
       ProjectsSliceDefault,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
       SettingsSlice,
       SettingsSliceDefaultPrimaryRepeatableZoneItem,
       SettingsSliceDefaultPrimary,
